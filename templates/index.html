@@ -1,26 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طباعة صفحة HTML</title>
+    <title>Telegram Updates</title>
 </head>
 <body>
-    <h1>صفحة HTML للطباعة</h1>
-    <button onclick="printPage()">طباعة الصفحة</button>
-
-    <script>
-        function printPage() {
-            var htmlContent = document.documentElement.outerHTML;
-            // استخدم AJAX لإرسال محتوى HTML إلى الخادم للطباعة
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "/print", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("html_content=" + encodeURIComponent(htmlContent));
-        }
-    </script>
+    <h1>Telegram Updates</h1>
+    <ul>
+        {% for update in updates %}
+            <li>{{ update | tojson }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
-
-
-
